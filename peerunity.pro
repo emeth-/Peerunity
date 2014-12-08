@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = peerunity
-VERSION = 0.1.1.0
+VERSION = 0.1.2.0
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE USE_IPV6
 CONFIG += no_include_pwd
@@ -172,7 +172,11 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/mintingview.h \
     src/qt/mintingtablemodel.h \
     src/qt/mintingfilterproxy.h \
-    src/kernelrecord.h
+    src/kernelrecord.h \
+    src/qt/virtualkeyboard.h \
+    src/qt/multisigaddressentry.h \
+    src/qt/multisiginputentry.h \
+    src/qt/multisigdialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -234,7 +238,11 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/mintingview.cpp \
     src/qt/mintingtablemodel.cpp \
     src/qt/mintingfilterproxy.cpp \
-    src/kernelrecord.cpp
+    src/kernelrecord.cpp \
+    src/qt/virtualkeyboard.cpp \
+    src/qt/multisigaddressentry.cpp \
+    src/qt/multisiginputentry.cpp \
+    src/qt/multisigdialog.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -250,7 +258,10 @@ FORMS += \
     src/qt/forms/overviewpage.ui \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
-    src/qt/forms/rpcconsole.ui
+    src/qt/forms/rpcconsole.ui \
+    src/qt/forms/multisigaddressentry.ui \
+    src/qt/forms/multisiginputentry.ui \
+    src/qt/forms/multisigdialog.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
