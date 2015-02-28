@@ -3013,8 +3013,10 @@ Value signrawtransaction(const Array& params, bool fHelp)
             tempKeystore.AddKey(key);
         }
     }
+    else if(fWalletUnlockMintOnly)
+        throw JSONRPCError(-102, "Wallet is unlocked for minting only.");
     else if(pwalletMain->IsLocked())
-      throw runtime_error("The wallet must be unlocked with walletpassphrase first");
+        throw JSONRPCError(-13, "The wallet must be unlocked with walletpassphrase first");
 
     // Add previous txouts given in the RPC call:
     if (params.size() > 1 && params[1].type() != null_type)
